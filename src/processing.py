@@ -3,16 +3,10 @@ def filter_by_state(state_list: list, state: str = "EXECUTED") -> list:
     содержащий только те словари, у которых ключ state
     соответствует указанному значению, по умолчанию ключ state == 'EXECUTED'"""
     new_state = []
-    if state == "EXECUTED":
-        for i in range(len(state_list)):
-            if state_list[i]["state"] == "EXECUTED":
-                new_state.append(state_list[i])
-        return new_state
-    else:
-        for i in range(len(state_list)):
-            if state_list[i]["state"] == "CANCELED":
-                new_state.append(state_list[i])
-        return new_state
+    for i in range(len(state_list)):
+        if state_list[i]["state"] == state:
+            new_state.append(state_list[i])
+    return new_state
 
 
 def sort_by_date(state_list: list, direction_sort: bool = True) -> list:
